@@ -125,8 +125,10 @@
           <region>${functionAppRegion}</region>
           <runtime>
             <!-- runtime os, could be windows, linux or docker-->
-            <os>linux</os>
-            <javaVersion>11</javaVersion>
+            <os>docker</os>
+            <image>[hub-user/]repo-name[:tag]</image>
+            <serverId></serverId>
+            <registryUrl></registryUrl>
             <!-- for docker function, please set the following parameters -->
             <!-- <image>[hub-user/]repo-name[:tag]</image> -->
             <!-- <serverId></serverId> -->
@@ -170,7 +172,7 @@
           <!-- copy unpacked function.json into Azure staging directory -->
           <execution>
             <id>copy-function-json</id>
-            <phase>install</phase>
+            <phase>package</phase>
             <goals>
               <goal>copy-resources</goal>
             </goals>
@@ -190,7 +192,7 @@
           </execution>
           <execution>
             <id>copy-traineddata</id>
-            <phase>install</phase>
+            <phase>package</phase>
             <goals>
               <goal>copy-resources</goal>
             </goals>
@@ -210,7 +212,7 @@
           </execution>
           <execution>
             <id>copy-test-image</id>
-            <phase>install</phase>
+            <phase>package</phase>
             <goals>
               <goal>copy-resources</goal>
             </goals>
